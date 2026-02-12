@@ -11,7 +11,7 @@
 End
 """
 class Solution:
-    def twoSum(self, nums: list[int], target: int) ->list[int]:
+    def twoSum(self, nums: list[int], target):
         i =1
         for num in nums: 
             for  j in range(i, len(nums)): #1,2,3,4 ...

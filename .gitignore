@@ -1,0 +1,12 @@
+.md
+b.py
+binary.py
+*.zip
+*.pdf
+Plan/
+Mekdes*/
+kiya/
+mik/
+sami/
+experimental_code*.py
+README.md

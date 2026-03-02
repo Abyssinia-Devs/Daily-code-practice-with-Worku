@@ -1,25 +1,40 @@
-def minSwap(n):
-    size = len(n)
-    zeros_in_ith_row = []
-    for i in range(len(n[0])):
-        zeros_in_ith_row.append(n[i].count('0'))
+def minSwaps(grid):
+    n = len(grid)
     
-    swap = 0
-    for i in range(size):
-        requered_zeros = (size - i - 1)
+    # Step 1: Calculate trailing zeros for each row
+    trailing_zeros = []
+    for row in grid:
+        count = 0
+        for cell in reversed(row):
+            if cell == 0:
+                count += 1
+            else:
+                break
+        trailing_zeros.append(count)
+    
+    # Step 2 & Step 3: Perform swaps
+    swaps = 0
+    for i in range(n):
+        required_zeros = n - i - 1
+        
+        # Find a row with enough trailing zeros
         j = i
-        while j<size and zeros_in_ith_row[j] < requered_zeros:
-            j+=1
-        if j == size:
+        while j < n and trailing_zeros[j] < required_zeros:
+            j += 1
+        
+        # If no such row exists
+        if j == n:
             return -1
         
+        # Bring that row up by swapping
         while j > i:
-            zeros_in_ith_row[j], zeros_in_ith_row[j-1] = zeros_in_ith_row[j-1], zeros_in_ith_row[j]
-            swap +=1
-            j -=1
-    return swap
-
-n = [[1,0,0],[1,1,0],[1,1,1]]
+            trailing_zeros[j], trailing_zeros[j - 1] = trailing_zeros[j - 1], trailing_zeros[j]
+            swaps += 1
+            j -= 1
+    
+    return swaps
+n =[[0,0,1],[1,1,0],[1,0,0]]
             
         
+print(minSwaps(n))
     

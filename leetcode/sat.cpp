@@ -4,6 +4,7 @@ class Solution:
         max_len = 0
 
         # LOOP 1: Pick the starting point(i)
+            
         for i in range(n):
             #we need a clean slate for every new start position
             count = [0] * 26
@@ -24,6 +25,7 @@ class Solution:
                         continue #Skip letters that arenot in substring(it is obvious)
                     if c_f == -1:
                         c_f = freq  # this is our target frequencey☺️🎉
+            
                     elif freq !=c_f:
                         is_balanced = False
                         break #fail immediately 

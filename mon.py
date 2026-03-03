@@ -1,7 +1,7 @@
 def minSwaps(grid):
     n = len(grid)
     
-    # Step 1: Calculate trailing zeros for each row
+    #calculate trailing zeros for each row
     trailing_zeros = []
     for row in grid:
         count = 0
@@ -12,7 +12,7 @@ def minSwaps(grid):
                 break
         trailing_zeros.append(count)
     
-    # Step 2 & Step 3: Perform swaps
+    #Perform swaps
     swaps = 0
     for i in range(n):
         required_zeros = n - i - 1
@@ -33,6 +33,8 @@ def minSwaps(grid):
             j -= 1
     
     return swaps
+
+# boom shakalaka tu!
 n =[[0,0,1],[1,1,0],[1,0,0]]
             
         
